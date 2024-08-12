@@ -23,22 +23,22 @@ public class Route {
 	@Autowired
 	Services service;
 	
-	@GetMapping("get")
+	@GetMapping("/get")
 	public ResponseEntity<String> get(){
 		return new ResponseEntity<>("got the response", HttpStatus.OK);
 	}
 	
-	@GetMapping("getall")
+	@GetMapping("/getall")
 	public ResponseEntity<List<String>> getAll(){
 		return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
 	}
 	
-	@GetMapping("add/{element}")
+	@GetMapping("/add/{element}")
 	public ResponseEntity<Boolean> addElement(@PathVariable String element){
 		return new ResponseEntity<>(service.addElement(element), HttpStatus.OK);
 	}
 	
-	@GetMapping("delete/{element}")
+	@GetMapping("/delete/{element}")
 	public ResponseEntity<Boolean> removeElement(@PathVariable String element){
 		return new ResponseEntity<>(service.removeElement(element), HttpStatus.OK);
 	}
